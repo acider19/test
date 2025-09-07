@@ -1,0 +1,9 @@
+# Ansible chapter 2. Playbook N 5
+---
+- name: "role demo"
+  hosts: "all"
+  become: true
+  vars_files:
+    - secrets.yaml
+  roles:
+    - role: myrole
