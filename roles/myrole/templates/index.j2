@@ -1,1 +1,4 @@
-{{ ansible_architecture | default('x86_64') }}
+CPU {{ ansible_processor }}
+RAM {{ ansible_memtotal_mb }}
+DISK {{ ansible_devices.sda.size }}
+IP {{ ansible_default_ipv4 }}
