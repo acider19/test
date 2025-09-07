@@ -12,12 +12,12 @@
   ansible.builtin.template:
     src: templates/index.j2
     dest: /var/www/html/index.html
-  register: status
 
 - name: Check www status
-  ansible.builtin.uri:
-    url: http://192.168.0.209
-    delegate_to: localhost
+  local_action:
+    ansible.builtin.uri:
+      url: http://192.168.0.209
+      register: status
 
 - name: Show result of checking
   ansible.builtin.debug:
