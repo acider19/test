@@ -7,5 +7,5 @@
     state: "latest"
     update_cache: true
 - name: "Debug message"
-  app.builtin.debug:
+  ansible.builtin.debug:
     msg: "Example of {{ j2_var }}"
