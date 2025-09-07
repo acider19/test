@@ -1,1 +1,1 @@
-{{ hostvars['asdf.example.com']['ansible_facts']['os_family'] }}
+{{ ansible_architecture | default('x86_64') }}
