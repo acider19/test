@@ -15,9 +15,9 @@
 
 - name: Check www status
   ansible.builtin.uri:
-    run_on_control_node: true
     url: http://192.168.0.209
     register: status
+  delegate_to: localhost
 
 - name: Show result of checking
   ansible.builtin.debug:
