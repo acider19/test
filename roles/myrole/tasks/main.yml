@@ -14,10 +14,10 @@
     dest: /var/www/html/index.html
 
 - name: Check www status
-  local_action:
-    ansible.builtin.uri:
-      url: http://192.168.0.209
-      register: status
+  ansible.builtin.uri:
+    run_on_control_node: true
+    url: http://192.168.0.209
+    register: status
 
 - name: Show result of checking
   ansible.builtin.debug:
