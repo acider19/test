@@ -17,7 +17,7 @@
   ansible.builtin.uri:
     url: http://192.168.0.209
     register: status
-  delegate_to: localhost
+    connection: local
 
 - name: Show result of checking
   ansible.builtin.debug:
