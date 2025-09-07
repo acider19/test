@@ -16,7 +16,7 @@
 - name: Check www status
   ansible.builtin.uri:
     url: http://192.168.0.209
-    connection: local
+  delegate_to: localhost
   register: status
     
 - name: Show result of checking
