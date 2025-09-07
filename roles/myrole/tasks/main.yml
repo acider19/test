@@ -16,9 +16,9 @@
 - name: Check www status
   ansible.builtin.uri:
     url: http://192.168.0.209
-    register: status
     connection: local
-
+  register: status
+    
 - name: Show result of checking
   ansible.builtin.debug:
     var: status
