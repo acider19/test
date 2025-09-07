@@ -3,9 +3,12 @@
 # tasks file for ./test/roles/myrole
 - name: "Install nginx via apt"
   ansible.builtin.apt:
-    name: "nginx"
-    state: "latest"
-    update_cache: true
+    - name: "nginx"
+      state: "latest"
+      update_cache: true
+    - name: "nano"
+      state: "latest"
+      update_cache: true
 - name: "Debug message"
   ansible.builtin.debug:
     msg: "Example of {{ j2_var }}"
