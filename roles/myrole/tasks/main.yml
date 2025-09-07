@@ -1,13 +1,16 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # tasks file for ./test/roles/myrole
+
 - name: "Install nginx via apt"
   ansible.builtin.apt:
     name:
       - nginx
-      - nano
+      - curl
     state: "latest"
     update_cache: true
-- name: "Debug message"
-  ansible.builtin.debug:
-    msg: "Example of {{ j2_var }}"
+
+- name: Create index.html using Jinja2
+  ansible.builtin.template:
+    src: templates/index.j2
+    dest: /var/www/html/index.html
