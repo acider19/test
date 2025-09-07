@@ -2,11 +2,9 @@
 ---
 # tasks file for ./test/roles/myrole
 
-- name: "Install nginx via apt"
+- name: Install nginx via apt
   ansible.builtin.apt:
-    name:
-      - nginx
-      - curl
+    name: nginx
     state: "latest"
     update_cache: true
 
@@ -14,3 +12,13 @@
   ansible.builtin.template:
     src: templates/index.j2
     dest: /var/www/html/index.html
+  register: status
+
+- name: Check www status
+  ansible.builtin.uri:
+    url: http://192.168.0.209
+    delegate_to: localhost
+
+- name: Show result of checking
+  ansible.builtin.debug:
+    var: status
