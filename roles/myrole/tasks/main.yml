@@ -13,6 +13,16 @@
     src: templates/index.j2
     dest: /var/www/html/index.html
 
+- name: Start nginx with systemd
+  ansible.builtin.systemd:
+    name: nginx
+    state: started
+
+- name: Enable nginx service
+  systemd:
+    name: nginx.service
+    enabled: true
+
 - name: Check www status
   ansible.builtin.uri:
     url: http://192.168.0.209
