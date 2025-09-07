@@ -21,4 +21,4 @@
     
 - name: Show result of checking
   ansible.builtin.debug:
-    var: status
+    msg: "HTTP Status: {{ status.status }} - {{ status.msg }}"
